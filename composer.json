@@ -1,0 +1,24 @@
+{
+    "name": "dejan.roshkovski/php-exchange-rate",
+    "description": "Coding challange",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dejan Roshkovski",
+            "email": "dejan.roshkovski@aboutyou.de"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0",
+        "vlucas/phpdotenv": "^5.4",
+        "predis/predis": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Services\\": "services/",
+            "Validators\\": "validators/"
+        },
+        "files": ["config/app.php", "config/exchangerates.php", "config/redis.php"]
+    }
+}
