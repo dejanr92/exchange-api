@@ -44,3 +44,12 @@ The _**amount**_ parameter has to be _numeric_.
 The _**live**_ parameter is optional _boolean_.
 
 Only limited static conversion possibilities are available
+
+## List of external packages used
+
+```
+"bramus/router"
+"guzzlehttp/guzzle"
+"vlucas/phpdotenv"
+"predis/predis"
+```
