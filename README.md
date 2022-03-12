@@ -10,15 +10,19 @@ It has a static exchange rates which are defined in the config/exchangerates.php
 
 - Tested to be working with composer ^2.2
 
+- You will need docker and docker-compose to run the project locally
+
 ## Installation Instructions
 
 - Clone the repository
 
 - Copy over the .env.example into a .env file and replace all the secrets
 
-- Configure your nginx to point the site to the public/ folder
-
 - Run ``` composer install ``` to get all the dependencies
+
+- Run ``` docker-compose up -d ``` to run the docker services
+
+- You can access the project on localhost:8080
 
 ## Live feature requirements
 

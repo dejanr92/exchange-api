@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  app:
+    image: php:7.4-fpm-alpine
+    volumes:
+      - ./:/var/www/html
+  nginx:
+    image: "nginx"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./environment/nginx:/etc/nginx/conf.d
+      - ./:/code
+  redis:
+    image: "redis:alpine"
