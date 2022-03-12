@@ -33,7 +33,7 @@ The ```REDIS_DEFAULT_TTL``` parameter will define the caching policy on the loca
 
 Make a simple get request with the query parameters target, source and amount
 
-Example {hostname}?amount=100&source=CHF&target=JPY&live=true
+Example {hostname}?amount=100&source=EUR&target=USD&live=false
 
 [Demo preview](https://factset.dejanroshkovski.com?amount=100&source=EUR&target=USD&live=true)
 
