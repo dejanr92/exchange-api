@@ -13,7 +13,7 @@ class ExchangeRequestValidator {
 	{
         $validCurrencies = explode(',', WORLD_CURRENCIES);
 
-        if(!isset($_GET['target']) || !isset($_GET['source']) || !isset($_GET['source'])) {
+        if(!isset($_GET['target']) || !isset($_GET['source']) || !isset($_GET['amount'])) {
             throw new Exception("Please provide all requred fields : target, source, amount", 422);
         }
 
