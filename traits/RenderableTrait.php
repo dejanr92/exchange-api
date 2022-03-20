@@ -32,4 +32,18 @@ trait RenderableTrait {
 		echo json_encode(['error' => $error]);
         return;
 	}
+
+
+    /**
+     * renderError
+     *
+     * @param mixed $error
+     * @param int $code
+     * @return void
+     */
+	protected static function redirectToPage($string): void
+	{
+        header(sprintf("Location: %s", $string));
+        return;
+	}
 }

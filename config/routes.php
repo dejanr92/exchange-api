@@ -2,6 +2,7 @@
 
 use Bramus\Router\Router;
 use Controllers\ExchangeController;
+use Controllers\PostsApiController;
 use Controllers\PostsController;
 
 $router = new Router();
@@ -10,19 +11,22 @@ $router->get('/exchange', function() {
     ExchangeController::index();
 });
 $router->get('/api/posts/(\d+)', function($id) {
-    PostsController::show($id);
+    PostsApiController::show($id);
 });
 $router->get('/api/posts', function() {
-    PostsController::index();
+    PostsApiController::index();
 });
 $router->post('/api/posts', function() {
-    PostsController::create();
+    PostsApiController::create();
 });
 $router->post('/api/posts/edit/(\d+)', function($id) {
-    PostsController::edit($id);
+    PostsApiController::edit($id);
 });
-$router->get('', function() {
-    PostsController::loadHtml();
+$router->get('/posts', function() {
+    PostsController::getPosts();
+});
+$router->get('/posts/create', function() {
+    PostsController::createPost();
 });
 
 

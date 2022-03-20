@@ -11,15 +11,15 @@ class CreatePostRequest {
      */
 	public function __construct()
 	{
-        if(!isset($_GET['title']) || !isset($_GET['description'])) {
+        if(!isset($_POST['title']) || !isset($_POST['description'])) {
             throw new Exception("Please provide all requred fields : title, description", 422);
         }
-        if(strlen($_GET['title']) > 255) {
+        if(strlen($_POST['title']) > 255) {
             throw new Exception("The title can be maximum 255 characters", 422);
         }
 
-        $this->title = $_GET['title'];
-        $this->description = $_GET['description'];
+        $this->title = $_POST['title'];
+        $this->description = $_POST['description'];
 	}
 
     public function all()

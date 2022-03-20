@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Posts</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card col-md-8 offset-md-2">
+                <div class="card-title">Posts</div>
+                <div class="card-body">
+                    <table id="postsTable">
+                        <thead>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const xhr = new XMLHttpRequest();
+    
+
+    xhr.onload = function () {
+        if(this.status == 200) {
+            const table = document.getElementById('tableBody');
+
+            const responseData = JSON.parse(this.responseText);
+            responseData.forEach(element => {
+                const row = document.createElement("tr");
+                const idText = document.createTextNode(element.id);
+                const id = document.createElement("td");
+                id.appendChild(idText);
+                const titleText = document.createTextNode(element.title);
+                const title = document.createElement("td");
+                title.appendChild(titleText);
+                const descText = document.createTextNode(element.description);
+                const desc = document.createElement("td");
+                desc.appendChild(descText);
+                row.appendChild(id)
+                row.appendChild(title);
+                row.appendChild(desc);
+                table.appendChild(row);
+            });
+            // container.add
+        }
+    }
+
+    xhr.open('GET', '/api/posts');
+    xhr.send();
+</script>
+</html>
