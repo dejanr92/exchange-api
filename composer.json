@@ -16,12 +16,13 @@
         "bramus/router": "~1.6"
     },
     "autoload": {
+        "files": ["config/app.php", "config/database.php", "config/exchangerates.php", "config/redis.php", "config/routes.php"],
         "psr-4": {
             "Services\\": "services/",
             "Controllers\\": "controllers/",
             "Validators\\": "validators/",
+            "Repositories\\": "repositories/",
             "Traits\\": "traits/"
-        },
-        "files": ["config/app.php", "config/exchangerates.php", "config/redis.php", "config/routes.php"]
+        }
     }
 }

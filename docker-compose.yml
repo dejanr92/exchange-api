@@ -1,9 +1,17 @@
 version: "3.9"
+networks:
+  exchnet:
+    ipam:
+      config:
+        - subnet: 192.168.55.0/24
 services:
   app:
-    image: php:7.4-fpm-alpine
+    build: "./environment/app/"
     volumes:
-      - ./:/var/www/html
+      - ./:/code
+    networks:
+        exchnet:
+          ipv4_address: 192.168.55.5
   nginx:
     image: "nginx"
     ports:
@@ -11,5 +19,23 @@ services:
     volumes:
       - ./environment/nginx:/etc/nginx/conf.d
       - ./:/code
+    networks:
+        exchnet:
+          ipv4_address: 192.168.55.2
   redis:
     image: "redis:alpine"
+    networks:
+        exchnet:
+          ipv4_address: 192.168.55.3
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+        exchnet:
+          ipv4_address: 192.168.55.4
+volumes:
+  mysql-data:
