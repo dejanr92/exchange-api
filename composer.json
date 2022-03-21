@@ -12,8 +12,7 @@
     "require": {
         "guzzlehttp/guzzle": "^7.0",
         "vlucas/phpdotenv": "^5.4",
-        "predis/predis": "^1.1",
-        "bramus/router": "~1.6"
+        "predis/predis": "^1.1"
     },
     "autoload": {
         "files": ["config/app.php", "config/database.php", "config/exchangerates.php", "config/redis.php", "config/routes.php"],

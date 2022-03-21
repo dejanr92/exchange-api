@@ -1,6 +1,11 @@
 ## General Description
 
-This package is a simple coding task showcase.
+This package is a simple coding task showcase for an application.
+
+The rules are not to use any frameworks to show core php/javascript knowledge.
+_**Only small packages are allowed.**_
+
+There is a database conneciton and showcase of core javascript part in a different branch in the repository and filestructure layout.
 
 It has a static exchange rates which are defined in the config/exchangerates.php, or it has an optional live feature that will use the exchangerate-api.com to get the latest live exchange rates.
 
@@ -35,7 +40,7 @@ Make a simple get request with the query parameters target, source and amount
 
 Example {hostname}?amount=100&source=EUR&target=USD&live=false
 
-[Demo preview](https://factset.dejanroshkovski.com?amount=100&source=EUR&target=USD&live=true)
+[Demo preview](https://factset.dejanroshkovski.com/calculate?amount=100&source=EUR&target=USD&live=true)
 
 Valid currency codes (for both _**target**_ and _**source**_):
 
@@ -52,7 +57,6 @@ Only limited static conversion possibilities are available
 ## List of external packages used
 
 ```
-"bramus/router"
 "guzzlehttp/guzzle"
 "vlucas/phpdotenv"
 "predis/predis"
