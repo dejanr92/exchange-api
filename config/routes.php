@@ -8,7 +8,7 @@ checkRoute('GET', '/^\/calculate$/', function() {
     ExchangeController::index();
 });
 checkRoute('GET', '/^\/api\/posts\/(\d+)$/', function($id) {
-    PostsApiController::show($id);
+    PostsApiController::show($id[1]);
 });
 checkRoute('GET', '/^\/api\/posts$/', function() {
     PostsApiController::index();
@@ -17,7 +17,7 @@ checkRoute('POST', '/^\/api\/posts$/', function() {
     PostsApiController::create();
 });
 checkRoute('POST', '/^\/api\/posts\/edit\/(\d+)$/', function($id) {
-    PostsApiController::edit($id);
+    PostsApiController::edit($id[1]);
 });
 checkRoute('GET', '/^\/posts$/', function() {
     PostsController::getPosts();

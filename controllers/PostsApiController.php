@@ -51,9 +51,9 @@ class PostsApiController {
 
     }
 
-    public static function show()
+    public static function show($id)
     {
-        $postId = (int) $_GET['id'];
+        $postId = (int) $id[0];
         $blogRepository = new BlogRepository();
         $data = $blogRepository->getPostById($postId);
 
