@@ -1,9 +1,16 @@
 <?php
 
-use Bramus\Router\Router;
 use Controllers\ExchangeController;
 
-$router = new Router();
+checkRoute('GET', '/\/calculate/', function() {
+    ExchangeController::index();
+});
 
-$router->get('', ExchangeController::index());
-
+function checkRoute($method, $pattern, $callback){
+    if($method !== $_SERVER['REQUEST_METHOD']){
+        return 0;
+    }
+    if(preg_match_all($pattern, $_SERVER['REQUEST_URI'], $matches)){
+        $callback($matches);
+    }
+}
