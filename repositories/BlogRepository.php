@@ -17,8 +17,8 @@ class BlogRepository extends BaseRepository {
         $sql = "SELECT `id`, `title`, `description` from `posts` LIMIT :limit OFFSET :offset";
 
         $statement = $this->client->prepare($sql);
-        $statement->bindValue(':limit', 20);
-        $statement->bindValue(':offset', 0);
+        $statement->bindValue(':limit', $limit);
+        $statement->bindValue(':offset', $offset);
 
         $result = $statement->execute();
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);

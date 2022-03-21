@@ -12,7 +12,7 @@ class PaginationRequest {
 	public function __construct()
 	{
         $this->limit = $_GET['limit'] ?? 20;
-        $this->page = $_GET['page'] ?? 0;
+        $this->page = isset($_GET['page']) ? $_GET['page'] - 1 : 0;
         $this->offset = $this->page * $this->limit;
 
         if(!is_numeric($this->limit)) {
